@@ -1,12 +1,19 @@
 const express = require('express');
 const routes = express.Router();
-const ongController = require('./controllers/ongController')
-const incidentController = require('./controllers/incidentController')
+const OngController = require('./controllers/ongController');
+const IncidentController = require('./controllers/incidentController');
+const ProfileController = require('./controllers/profileController');
+const SessionController = require('./controllers/sessionController');
 
-routes.post('/ongs', ongController.create );
-routes.get('/ongs', ongController.get_all);
+routes.post('/sessions', SessionController.create);
 
-routes.post('/incidents', incidentController.create );
-routes.get('/incidents', incidentController.get_all );
+routes.post('/ongs', OngController.create );
+routes.get('/ongs', OngController.index);
+
+routes.get('/profile', ProfileController.index);
+
+routes.post('/incidents', IncidentController.create );
+routes.get('/incidents', IncidentController.index );
+routes.delete('/incidents/:id', IncidentController.delete );
 
 module.exports = routes;
