@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Challenge</title>
+    </head>
+    <body>
+        <input type="text" name="input" />
+        <button id='addName'>Add name</button>
+        
+        <ul id='list'></ul>
+
+        <script>
+            container = document.querySelector('#list')
+
+            inputObject = {
+                'inputElement': document.querySelector('input'),
+                'btnElement': document.querySelector('#addName')
+            }
+            
+
+            inputObject.btnElement.onclick = function() {
+                inputText = inputObject.inputElement.value
+    
+                if(inputText != ''){
+                    liElement = document.createElement('li');
+                    
+                    text = document.createTextNode(inputText);
+
+                    liElement.appendChild(text);
+                    container.appendChild(liElement)
+
+                    inputObject.inputElement.value = '';
+                }
+            }
+        </script>
+    </body>
+</html>

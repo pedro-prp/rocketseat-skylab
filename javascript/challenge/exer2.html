@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Challenge</title>
+    </head>
+    <body>
+        <div id='App'>
+            <button class='button'>Generate Box</button>
+        </div>
+    
+        <script>
+            buttonElement = document.querySelector('.button')
+
+            containerApp = document.querySelector('#app')
+
+            buttonElement.onclick = function() {
+                boxElement = document.createElement('div')
+                boxElement.setAttribute('class', 'box')
+                boxElement.style.width = 100;
+                boxElement.style.height = 100;
+                boxElement.style.backgroundColor = 'red';
+                
+                containerApp.appendChild(boxElement);
+
+                boxElement = document.querySelector('.box')
+
+                boxElement.onmouseover = function() {
+                    newColor = getRandomColor();
+
+                    boxElement.style.backgroundColor = newColor;
+                }
+            }
+
+
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                
+                return color;
+            }
+
+        </script>
+    </body>
+</html>
