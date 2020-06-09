@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>For, whiles and intervals</title>
+    </head>
+    <body>
+        <script>
+            // for
+            console.log('FOR')
+            for(var i = 0; i < 11; i++){
+                console.log(i)
+            }
+
+            console.log('WHILE')
+            i = 12312312321;
+            while(i > 10){
+                console.log(i)
+
+                i /= 15;
+            }
+
+            console.log('INTERVAL AND TIMEOUT')
+            function show(){
+                console.log('Hello Interval');
+            }
+
+            function showTimeout(){
+                console.log('Hello timeout')
+            }
+
+            setInterval(show, 1000);
+
+            setTimeout(showTimeout, 5000);
+
+        </script>
+    </body>
+</html>
