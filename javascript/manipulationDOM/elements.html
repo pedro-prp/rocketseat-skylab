@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Elements manipulations</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <h1>removed</h1>
+        </div>
+
+        <script>
+            var link = document.createElement('a');
+            
+            link.setAttribute('href', 'http://google.com')
+
+            var linkText = document.createTextNode('Go Google')
+            link.appendChild(linkText);
+
+            var containerApp = document.querySelector('#app')
+            containerApp.appendChild(link)
+
+            var title = document.querySelector('h1')
+            containerApp.removeChild(title)
+        </script>
+    </body>
+</html>
