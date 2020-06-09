@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Reference</title>
+    </head>
+    <body>
+        <div id="app">    
+            <input type="text" name="name" />
+            <button class="bnt">show</button>
+        </div>
+
+        <script>
+            var input = document.querySelector('input')
+            var button = document.querySelector('button')
+
+            console.log(input)
+
+            button.onclick = function() {
+                var text = input.value;
+
+                alert(text);
+            }
+        </script>
+    </body>
+</html>
