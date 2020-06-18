@@ -3,17 +3,15 @@ module.exports = {
     mode: 'development',
     output: {
         path: __dirname,
-        filename: './bundle.js'
+        filename: 'bundle.js'
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
+                include: __dirname,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                }
-
+                loader: 'babel-loader',
             }
         ],
     },

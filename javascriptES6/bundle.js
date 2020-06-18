@@ -86,14 +86,27 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./functions.js":
+/*!**********************!*\
+  !*** ./functions.js ***!
+  \**********************/
+/*! exports provided: sum, sub */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sum\", function() { return sum; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sub\", function() { return sub; });\nfunction sum(a, b) {\n  return a + b;\n}\nfunction sub(a, b) {\n  return a - b;\n}\n\n//# sourceURL=webpack:///./functions.js?");
+
+/***/ }),
+
 /***/ "./main.js":
 /*!*****************!*\
   !*** ./main.js ***!
   \*****************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("console.log('main');\n\n//# sourceURL=webpack:///./main.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ \"./functions.js\");\n\nconsole.log(Object(_functions__WEBPACK_IMPORTED_MODULE_0__[\"sum\"])(1, 3));\nconsole.log(Object(_functions__WEBPACK_IMPORTED_MODULE_0__[\"sub\"])(4, 1));\n\n//# sourceURL=webpack:///./main.js?");
 
 /***/ })
 
