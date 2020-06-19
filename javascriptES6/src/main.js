@@ -1,3 +1,3 @@
 import { Api } from './async/axios'
 
-Api.getUserInfo('pedro-prp')
+Api.getUserInfo('pedro-prp');
