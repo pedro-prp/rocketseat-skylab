@@ -1,4 +1,3 @@
-import {sum, sub } from './functions';
+import { executePromisse } from './async'
 
-console.log(sum(1, 3));
-console.log(sub(4, 1));
+executePromisse();
