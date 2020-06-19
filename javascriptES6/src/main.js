@@ -1,3 +1,3 @@
-import { executePromisse } from './async'
+import { Api } from './async/axios'
 
-executePromisse();
+Api.getUserInfo('pedro-prp')
