@@ -17,7 +17,7 @@ export default function Product() {
     }
 
     useEffect(() => {
-        getProduct(id)
+        getProduct(id);
     }, []);
 
 

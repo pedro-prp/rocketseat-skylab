@@ -1,65 +1,68 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React, {useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import './styles.css'
 
-export default class Main extends Component {
-    state = {
-        products: [],
-        productInfo: {},
-        page: 1,
-    }
 
-    componentDidMount() {
-        this.loadProducts();
-    }
+export default function Main() {
 
-    loadProducts = async (page = 1) => {
-        const response = await api.get(`/products?page=${page}`);
+    const [products, setProducts] = useState([]);
+    const [page, setPage] = useState();
+    const [productInfo, setProductInfo] = useState({});
 
-        const { docs, ...productInfo } = response.data;
+    useEffect(() => {
+        loadProducts();
+        console.log(products);
+    }, products);
 
-        this.setState({ products: docs, productInfo, page });
-    }
-
-    nextPage = () => {
-        const { page, productInfo } = this.state;
-
-        if (page === productInfo.pages) return;
-
-        const pageNumber = page + 1;
-
-        this.loadProducts(pageNumber);
-    }
-
-    prevPage = () => {
-        const { page } = this.state;
-
+    function prevPage() {
         if (page === 1) return;
 
         const pageNumber = page - 1;
 
-        this.loadProducts(pageNumber);
+        loadProducts(pageNumber);
     }
 
-    render() {
-        const { products, page, productInfo } = this.state;
+    function nextPage() {
+        
+        if (page === productInfo.pages) return;
+        
+        const pageNumber = page + 1;
+        
+        loadProducts(pageNumber);
+    }
 
-        return (
-            <div className="product-list">
-                {products.map(product => (
-                    <article key={product._id}>
-                        <strong>{ product.title }</strong>
-                        <p>{ product.description }</p>
-                        <Link to={`/products/${product._id}`}>Details</Link>
 
-                    </article>
-                ))}
-                <div className="actions">
-                    <button disabled={page === 1} onClick={this.prevPage}>prev</button>
-                    <button disabled={page === productInfo.pages }onClick={this.nextPage}>next</button>
-                </div>
+    async function loadProducts(page = 1) {
+        const response = await api.get(`/products?page=${page}`);
+
+        const { docs, ...productInfo } = response.data;
+
+        console.log(docs);
+
+        setProductInfo(productInfo);
+        setProducts(docs);
+        setPage(page);
+
+        console.log(products);
+    }
+
+
+    return (
+        <div className="product-list">
+            {products.map(product => (
+                <article key={product._id}>
+                    <strong>{ product.title }</strong>
+                    <p>{ product.description }</p>
+                    <Link to={`/products/${product._id}`}>Details</Link>
+
+                </article>
+            ))}
+            <div className="actions">
+                <button disabled={page === 1} onClick={prevPage}>prev</button>
+                <button disabled={page === productInfo.pages }onClick={nextPage}>next</button>
             </div>
-        )
-    }
+        </div>
+    )
 }
